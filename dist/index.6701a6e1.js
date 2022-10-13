@@ -942,28 +942,21 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _reactDom = require("react-dom"); // import statement to indicate that you need to bundle './index.scss'
+var _reactDom = require("react-dom");
 var _reactDomDefault = parcelHelpers.interopDefault(_reactDom);
+var _mainView = require("./components/main-view/main-view"); // import statement to indicate that you need to bundle './index.scss'
 var _indexScss = require("./index.scss"); // main component (will eventually use all the others)
 var _jsxFileName = "/Users/justine/myFlix-client/src/index.jsx";
 class MyFlixApplication extends _reactDefault.default.Component {
     render() {
-        return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
-            className: "my-flix",
-            __self: this,
-            __source: {
-                fileName: _jsxFileName,
-                lineNumber: 11,
-                columnNumber: 7
-            }
-        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+        return(/*#__PURE__*/ _reactDefault.default.createElement(_mainView.MainView, {
             __self: this,
             __source: {
                 fileName: _jsxFileName,
                 lineNumber: 12,
-                columnNumber: 9
+                columnNumber: 7
             }
-        }, "Good morning")));
+        }));
     }
 } // finds the root of your app
 const container = document.getElementsByClassName('app-container')[0]; // tells React to render your app in the root DOM element
@@ -974,7 +967,7 @@ _reactDomDefault.default.render(/*#__PURE__*/ _reactDefault.default.createElemen
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"6TuXu","react-dom":"gkWJK","./index.scss":"jUTZ8","@parcel/transformer-js/src/esmodule-helpers.js":"jgpm8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"6SfHI"}],"6TuXu":[function(require,module,exports) {
+},{"react":"6TuXu","react-dom":"gkWJK","./components/main-view/main-view":"2zHas","./index.scss":"jUTZ8","@parcel/transformer-js/src/esmodule-helpers.js":"jgpm8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"6SfHI"}],"6TuXu":[function(require,module,exports) {
 'use strict';
 module.exports = require('./cjs/react.development.js');
 
@@ -24386,7 +24379,145 @@ module.exports = require('./cjs/scheduler.development.js');
     /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== 'undefined' && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop === 'function') __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
 })();
 
-},{}],"jUTZ8":[function() {},{}],"jgpm8":[function(require,module,exports) {
+},{}],"2zHas":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$35bf = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$35bf.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MainView", ()=>MainView
+);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _movieCard = require("../movie-card/movie-card");
+var _movieView = require("../movie-view/movie-view");
+var _jsxFileName = "/Users/justine/myFlix-client/src/components/main-view/main-view.jsx";
+class MainView extends _reactDefault.default.Component {
+    constructor(){
+        super();
+        this.state = {
+            movies: [
+                {
+                    _id: 1,
+                    Title: 'Inception',
+                    Description: 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.',
+                    ImagePath: 'inception.jpg'
+                },
+                {
+                    _id: 2,
+                    Title: 'The Shawshank Redemption',
+                    Description: 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.',
+                    ImagePath: 'shawshank.jpg'
+                },
+                {
+                    _id: 3,
+                    Title: 'Gladiator',
+                    Description: 'A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.',
+                    ImagePath: 'gladiator.png'
+                }
+            ],
+            selectedMovie: null
+        };
+    }
+    setSelectedMovie(newSelectedMovie) {
+        this.setState({
+            selectedMovie: newSelectedMovie
+        });
+    }
+    render() {
+        const { movies , selectedMovie  } = this.state; //if (selectedMovie) return <MovieView movie={selectedMovie} />;
+        if (movies.length === 0) return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "main-view",
+            __self: this,
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 45,
+                columnNumber: 37
+            }
+        }, "The list is empty!"));
+        return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "main-view",
+            __self: this,
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 48,
+                columnNumber: 9
+            }
+        }, selectedMovie ? /*#__PURE__*/ _reactDefault.default.createElement(_movieView.MovieView, {
+            movie: selectedMovie,
+            onBackClick: (newSelectedMovie)=>{
+                this.setSelectedMovie(newSelectedMovie);
+            },
+            __self: this,
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 50,
+                columnNumber: 15
+            }
+        }) : movies.map((movie)=>/*#__PURE__*/ _reactDefault.default.createElement(_movieCard.MovieCard, {
+                key: movie._id,
+                movie: movie,
+                onMovieClick: (movie1)=>{
+                    this.setSelectedMovie(movie1);
+                },
+                __self: this,
+                __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 52,
+                    columnNumber: 15
+                }
+            })
+        )));
+    }
+}
+
+  $parcel$ReactRefreshHelpers$35bf.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"6TuXu","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","@parcel/transformer-js/src/esmodule-helpers.js":"jgpm8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"6SfHI"}],"6EiBJ":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$4249 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$4249.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MovieCard", ()=>MovieCard
+);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _jsxFileName = "/Users/justine/myFlix-client/src/components/movie-card/movie-card.jsx";
+class MovieCard extends _reactDefault.default.Component {
+    render() {
+        // movie in this.props is the name of the props used in <MovieCard />
+        const { movie , onMovieClick  } = this.props;
+        return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "movie-card",
+            onClick: ()=>{
+                onMovieClick(movie);
+            },
+            __self: this,
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 7,
+                columnNumber: 12
+            }
+        }, movie.Title));
+    }
+}
+
+  $parcel$ReactRefreshHelpers$4249.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"jgpm8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"6SfHI"}],"jgpm8":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -24538,6 +24669,114 @@ function registerExportsForReactRefresh(module) {
     }
 }
 
-},{"react-refresh/runtime":"1xTij"}]},["iWsMt","e5eHd","dLPEP"], "dLPEP", "parcelRequireaec4")
+},{"react-refresh/runtime":"1xTij"}],"ikZdr":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$3741 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$3741.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MovieView", ()=>MovieView
+);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _jsxFileName = "/Users/justine/myFlix-client/src/components/movie-view/movie-view.jsx";
+class MovieView extends _reactDefault.default.Component {
+    render() {
+        const { movie , onBackClick  } = this.props;
+        return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "movie-view",
+            __self: this,
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 9,
+                columnNumber: 7
+            }
+        }, /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "movie-poster",
+            __self: this,
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 10,
+                columnNumber: 9
+            }
+        }, /*#__PURE__*/ _reactDefault.default.createElement("img", {
+            src: movie.ImagePath,
+            __self: this,
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 11,
+                columnNumber: 11
+            }
+        })), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "movie-title",
+            __self: this,
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 13,
+                columnNumber: 9
+            }
+        }, /*#__PURE__*/ _reactDefault.default.createElement("span", {
+            className: "label",
+            __self: this,
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 14,
+                columnNumber: 11
+            }
+        }, "Title: "), /*#__PURE__*/ _reactDefault.default.createElement("span", {
+            className: "value",
+            __self: this,
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 15,
+                columnNumber: 11
+            }
+        }, movie.Title)), /*#__PURE__*/ _reactDefault.default.createElement("div", {
+            className: "movie-description",
+            __self: this,
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 17,
+                columnNumber: 9
+            }
+        }, /*#__PURE__*/ _reactDefault.default.createElement("span", {
+            className: "label",
+            __self: this,
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 18,
+                columnNumber: 11
+            }
+        }, "Description: "), /*#__PURE__*/ _reactDefault.default.createElement("span", {
+            className: "value",
+            __self: this,
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 19,
+                columnNumber: 11
+            }
+        }, movie.Description)), /*#__PURE__*/ _reactDefault.default.createElement("button", {
+            onClick: ()=>{
+                onBackClick(null);
+            },
+            __self: this,
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 21,
+                columnNumber: 9
+            }
+        }, "Back")));
+    }
+}
+
+  $parcel$ReactRefreshHelpers$3741.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"jgpm8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"6SfHI"}],"jUTZ8":[function() {},{}]},["iWsMt","e5eHd","dLPEP"], "dLPEP", "parcelRequireaec4")
 
 //# sourceMappingURL=index.6701a6e1.js.map
