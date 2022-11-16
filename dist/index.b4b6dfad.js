@@ -27075,6 +27075,7 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _registrationView = require("../registration-view/registration-view");
 var _loginView = require("../login-view/login-view");
 var _movieCard = require("../movie-card/movie-card");
 var _movieView = require("../movie-view/movie-view");
@@ -27102,18 +27103,30 @@ class MainView extends (0, _reactDefault.default).Component {
             selectedMovie: movie
         });
     }
+    /* registration */ onRegistration(newUser) {
+        this.setState({
+            newUser
+        });
+    }
     /* when a user successfully logs in, this function updates the 'user' property in state to that particular user */ onLoggedIn(user) {
         this.setState({
             user
         });
     }
     render() {
-        const { movies , selectedMovie , user  } = this.state;
+        const { movies , selectedMovie , user , newUser  } = this.state;
+        if (!newUser) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _registrationView.RegistrationView), {
+            onRegistration: (newUser)=>this.onRegistration(newUser)
+        }, void 0, false, {
+            fileName: "src/components/main-view/main-view.jsx",
+            lineNumber: 58,
+            columnNumber: 26
+        }, this);
         /* if there's no user, the LoginView is rendered. if there's a user logged in, the user details are passed as a prop to the LoginView */ if (!user) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginView.LoginView), {
             onLoggedIn: (user)=>this.onLoggedIn(user)
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 51,
+            lineNumber: 61,
             columnNumber: 23
         }, this);
         // before the movies have been loaded
@@ -27121,7 +27134,7 @@ class MainView extends (0, _reactDefault.default).Component {
             className: "main-view"
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 54,
+            lineNumber: 64,
             columnNumber: 37
         }, this);
         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27133,7 +27146,7 @@ class MainView extends (0, _reactDefault.default).Component {
                 }
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 60,
+                lineNumber: 70,
                 columnNumber: 15
             }, this) : movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                     movie: movie,
@@ -27142,12 +27155,12 @@ class MainView extends (0, _reactDefault.default).Component {
                     }
                 }, movie._id, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 62,
+                    lineNumber: 72,
                     columnNumber: 15
                 }, this))
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 57,
+            lineNumber: 67,
             columnNumber: 9
         }, this);
     }
@@ -27158,7 +27171,7 @@ class MainView extends (0, _reactDefault.default).Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","../login-view/login-view":"9YtA0","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"jo6P5":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","../registration-view/registration-view":"3U8r7","../login-view/login-view":"9YtA0","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"jo6P5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Axios", ()=>Axios);
@@ -31290,33 +31303,42 @@ function isAxiosError(payload) {
 }
 exports.default = isAxiosError;
 
-},{"./../utils.js":"5By4s","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9YtA0":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$9fee = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"./../utils.js":"5By4s","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3U8r7":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$789c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$9fee.prelude(module);
+$parcel$ReactRefreshHelpers$789c.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "LoginView", ()=>LoginView);
+parcelHelpers.export(exports, "RegistrationView", ()=>RegistrationView);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _cors = require("cors");
-var _corsDefault = parcelHelpers.interopDefault(_cors);
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _s = $RefreshSig$();
-function LoginView(props) {
+function RegistrationView(props) {
     _s();
     const [username, setUsername] = (0, _react.useState)("");
     const [password, setPassword] = (0, _react.useState)("");
+    const [email, setEmail] = (0, _react.useState)("");
+    const [birthday, setBirthday] = (0, _react.useState)("");
     const handleSubmit = (e)=>{
         e.preventDefault();
-        console.log(username, password);
-        /* send a request to the server for authentication */ /* then call props.onLoggedIn(username) */ props.onLoggedIn(username);
+        console.log(username, password, email, birthday);
+        props.onRegistration(username);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
         children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                children: "Register Here"
+            }, void 0, false, {
+                fileName: "src/components/registration-view/registration-view.jsx",
+                lineNumber: 20,
+                columnNumber: 7
+            }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                 children: [
                     "Username:",
@@ -31325,14 +31347,14 @@ function LoginView(props) {
                         value: username,
                         onChange: (e)=>setUsername(e.target.value)
                     }, void 0, false, {
-                        fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 20,
+                        fileName: "src/components/registration-view/registration-view.jsx",
+                        lineNumber: 23,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
-                fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 18,
+                fileName: "src/components/registration-view/registration-view.jsx",
+                lineNumber: 21,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -31343,555 +31365,77 @@ function LoginView(props) {
                         value: password,
                         onChange: (e)=>setPassword(e.target.value)
                     }, void 0, false, {
-                        fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 24,
+                        fileName: "src/components/registration-view/registration-view.jsx",
+                        lineNumber: 27,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
-                fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 22,
+                fileName: "src/components/registration-view/registration-view.jsx",
+                lineNumber: 25,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                children: [
+                    "Email:",
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "email",
+                        value: email,
+                        onChange: (e)=>setEmail(e.target.value)
+                    }, void 0, false, {
+                        fileName: "src/components/registration-view/registration-view.jsx",
+                        lineNumber: 31,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/registration-view/registration-view.jsx",
+                lineNumber: 29,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                children: [
+                    "Birthday:",
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "birthday",
+                        value: birthday,
+                        onChange: (e)=>setBirthday(e.target.value)
+                    }, void 0, false, {
+                        fileName: "src/components/registration-view/registration-view.jsx",
+                        lineNumber: 35,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/registration-view/registration-view.jsx",
+                lineNumber: 33,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 type: "submit",
                 onClick: handleSubmit,
-                children: "Submit"
+                children: "Register"
             }, void 0, false, {
-                fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 26,
+                fileName: "src/components/registration-view/registration-view.jsx",
+                lineNumber: 37,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
-        fileName: "src/components/login-view/login-view.jsx",
-        lineNumber: 17,
+        fileName: "src/components/registration-view/registration-view.jsx",
+        lineNumber: 19,
         columnNumber: 5
     }, this);
 }
-_s(LoginView, "9FY2cPL9VBDmuhjwpF2ik6flsHs=");
-_c = LoginView;
+_s(RegistrationView, "oodxkowr8L/+sgf0pg4pF6PrtNw=");
+_c = RegistrationView;
+RegistrationView.propTypes = {
+    onRegistration: (0, _propTypesDefault.default).func.isRequired
+};
 var _c;
-$RefreshReg$(_c, "LoginView");
+$RefreshReg$(_c, "RegistrationView");
 
-  $parcel$ReactRefreshHelpers$9fee.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","cors":"jOdGr","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"jOdGr":[function(require,module,exports) {
-(function() {
-    "use strict";
-    var assign = require("object-assign");
-    var vary = require("vary");
-    var defaults = {
-        origin: "*",
-        methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-        preflightContinue: false,
-        optionsSuccessStatus: 204
-    };
-    function isString(s) {
-        return typeof s === "string" || s instanceof String;
-    }
-    function isOriginAllowed(origin, allowedOrigin) {
-        if (Array.isArray(allowedOrigin)) {
-            for(var i = 0; i < allowedOrigin.length; ++i){
-                if (isOriginAllowed(origin, allowedOrigin[i])) return true;
-            }
-            return false;
-        } else if (isString(allowedOrigin)) return origin === allowedOrigin;
-        else if (allowedOrigin instanceof RegExp) return allowedOrigin.test(origin);
-        else return !!allowedOrigin;
-    }
-    function configureOrigin(options, req) {
-        var requestOrigin = req.headers.origin, headers = [], isAllowed;
-        if (!options.origin || options.origin === "*") // allow any origin
-        headers.push([
-            {
-                key: "Access-Control-Allow-Origin",
-                value: "*"
-            }
-        ]);
-        else if (isString(options.origin)) {
-            // fixed origin
-            headers.push([
-                {
-                    key: "Access-Control-Allow-Origin",
-                    value: options.origin
-                }
-            ]);
-            headers.push([
-                {
-                    key: "Vary",
-                    value: "Origin"
-                }
-            ]);
-        } else {
-            isAllowed = isOriginAllowed(requestOrigin, options.origin);
-            // reflect origin
-            headers.push([
-                {
-                    key: "Access-Control-Allow-Origin",
-                    value: isAllowed ? requestOrigin : false
-                }
-            ]);
-            headers.push([
-                {
-                    key: "Vary",
-                    value: "Origin"
-                }
-            ]);
-        }
-        return headers;
-    }
-    function configureMethods(options) {
-        var methods = options.methods;
-        if (methods.join) methods = options.methods.join(","); // .methods is an array, so turn it into a string
-        return {
-            key: "Access-Control-Allow-Methods",
-            value: methods
-        };
-    }
-    function configureCredentials(options) {
-        if (options.credentials === true) return {
-            key: "Access-Control-Allow-Credentials",
-            value: "true"
-        };
-        return null;
-    }
-    function configureAllowedHeaders(options, req) {
-        var allowedHeaders = options.allowedHeaders || options.headers;
-        var headers = [];
-        if (!allowedHeaders) {
-            allowedHeaders = req.headers["access-control-request-headers"]; // .headers wasn't specified, so reflect the request headers
-            headers.push([
-                {
-                    key: "Vary",
-                    value: "Access-Control-Request-Headers"
-                }
-            ]);
-        } else if (allowedHeaders.join) allowedHeaders = allowedHeaders.join(","); // .headers is an array, so turn it into a string
-        if (allowedHeaders && allowedHeaders.length) headers.push([
-            {
-                key: "Access-Control-Allow-Headers",
-                value: allowedHeaders
-            }
-        ]);
-        return headers;
-    }
-    function configureExposedHeaders(options) {
-        var headers = options.exposedHeaders;
-        if (!headers) return null;
-        else if (headers.join) headers = headers.join(","); // .headers is an array, so turn it into a string
-        if (headers && headers.length) return {
-            key: "Access-Control-Expose-Headers",
-            value: headers
-        };
-        return null;
-    }
-    function configureMaxAge(options) {
-        var maxAge = (typeof options.maxAge === "number" || options.maxAge) && options.maxAge.toString();
-        if (maxAge && maxAge.length) return {
-            key: "Access-Control-Max-Age",
-            value: maxAge
-        };
-        return null;
-    }
-    function applyHeaders(headers, res) {
-        for(var i = 0, n = headers.length; i < n; i++){
-            var header = headers[i];
-            if (header) {
-                if (Array.isArray(header)) applyHeaders(header, res);
-                else if (header.key === "Vary" && header.value) vary(res, header.value);
-                else if (header.value) res.setHeader(header.key, header.value);
-            }
-        }
-    }
-    function cors(options, req, res, next) {
-        var headers = [], method = req.method && req.method.toUpperCase && req.method.toUpperCase();
-        if (method === "OPTIONS") {
-            // preflight
-            headers.push(configureOrigin(options, req));
-            headers.push(configureCredentials(options, req));
-            headers.push(configureMethods(options, req));
-            headers.push(configureAllowedHeaders(options, req));
-            headers.push(configureMaxAge(options, req));
-            headers.push(configureExposedHeaders(options, req));
-            applyHeaders(headers, res);
-            if (options.preflightContinue) next();
-            else {
-                // Safari (and potentially other browsers) need content-length 0,
-                //   for 204 or they just hang waiting for a body
-                res.statusCode = options.optionsSuccessStatus;
-                res.setHeader("Content-Length", "0");
-                res.end();
-            }
-        } else {
-            // actual response
-            headers.push(configureOrigin(options, req));
-            headers.push(configureCredentials(options, req));
-            headers.push(configureExposedHeaders(options, req));
-            applyHeaders(headers, res);
-            next();
-        }
-    }
-    function middlewareWrapper(o) {
-        // if options are static (either via defaults or custom options passed in), wrap in a function
-        var optionsCallback = null;
-        if (typeof o === "function") optionsCallback = o;
-        else optionsCallback = function(req, cb) {
-            cb(null, o);
-        };
-        return function corsMiddleware(req, res, next) {
-            optionsCallback(req, function(err, options) {
-                if (err) next(err);
-                else {
-                    var corsOptions = assign({}, defaults, options);
-                    var originCallback = null;
-                    if (corsOptions.origin && typeof corsOptions.origin === "function") originCallback = corsOptions.origin;
-                    else if (corsOptions.origin) originCallback = function(origin, cb) {
-                        cb(null, corsOptions.origin);
-                    };
-                    if (originCallback) originCallback(req.headers.origin, function(err2, origin) {
-                        if (err2 || !origin) next(err2);
-                        else {
-                            corsOptions.origin = origin;
-                            cors(corsOptions, req, res, next);
-                        }
-                    });
-                    else next();
-                }
-            });
-        };
-    }
-    // can pass either an options hash, an options delegate, or nothing
-    module.exports = middlewareWrapper;
-})();
-
-},{"object-assign":"eJecX","vary":"9FfFY"}],"eJecX":[function(require,module,exports) {
-/*
-object-assign
-(c) Sindre Sorhus
-@license MIT
-*/ "use strict";
-/* eslint-disable no-unused-vars */ var getOwnPropertySymbols = Object.getOwnPropertySymbols;
-var hasOwnProperty = Object.prototype.hasOwnProperty;
-var propIsEnumerable = Object.prototype.propertyIsEnumerable;
-function toObject(val) {
-    if (val === null || val === undefined) throw new TypeError("Object.assign cannot be called with null or undefined");
-    return Object(val);
-}
-function shouldUseNative() {
-    try {
-        if (!Object.assign) return false;
-        // Detect buggy property enumeration order in older V8 versions.
-        // https://bugs.chromium.org/p/v8/issues/detail?id=4118
-        var test1 = new String("abc"); // eslint-disable-line no-new-wrappers
-        test1[5] = "de";
-        if (Object.getOwnPropertyNames(test1)[0] === "5") return false;
-        // https://bugs.chromium.org/p/v8/issues/detail?id=3056
-        var test2 = {};
-        for(var i = 0; i < 10; i++)test2["_" + String.fromCharCode(i)] = i;
-        var order2 = Object.getOwnPropertyNames(test2).map(function(n) {
-            return test2[n];
-        });
-        if (order2.join("") !== "0123456789") return false;
-        // https://bugs.chromium.org/p/v8/issues/detail?id=3056
-        var test3 = {};
-        "abcdefghijklmnopqrst".split("").forEach(function(letter) {
-            test3[letter] = letter;
-        });
-        if (Object.keys(Object.assign({}, test3)).join("") !== "abcdefghijklmnopqrst") return false;
-        return true;
-    } catch (err) {
-        // We don't expect any of the above to throw, but better to be safe.
-        return false;
-    }
-}
-module.exports = shouldUseNative() ? Object.assign : function(target, source) {
-    var from;
-    var to = toObject(target);
-    var symbols;
-    for(var s = 1; s < arguments.length; s++){
-        from = Object(arguments[s]);
-        for(var key in from)if (hasOwnProperty.call(from, key)) to[key] = from[key];
-        if (getOwnPropertySymbols) {
-            symbols = getOwnPropertySymbols(from);
-            for(var i = 0; i < symbols.length; i++)if (propIsEnumerable.call(from, symbols[i])) to[symbols[i]] = from[symbols[i]];
-        }
-    }
-    return to;
-};
-
-},{}],"9FfFY":[function(require,module,exports) {
-/*!
- * vary
- * Copyright(c) 2014-2017 Douglas Christopher Wilson
- * MIT Licensed
- */ "use strict";
-/**
- * Module exports.
- */ module.exports = vary;
-module.exports.append = append;
-/**
- * RegExp to match field-name in RFC 7230 sec 3.2
- *
- * field-name    = token
- * token         = 1*tchar
- * tchar         = "!" / "#" / "$" / "%" / "&" / "'" / "*"
- *               / "+" / "-" / "." / "^" / "_" / "`" / "|" / "~"
- *               / DIGIT / ALPHA
- *               ; any VCHAR, except delimiters
- */ var FIELD_NAME_REGEXP = /^[!#$%&'*+\-.^_`|~0-9A-Za-z]+$/;
-/**
- * Append a field to a vary header.
- *
- * @param {String} header
- * @param {String|Array} field
- * @return {String}
- * @public
- */ function append(header, field) {
-    if (typeof header !== "string") throw new TypeError("header argument is required");
-    if (!field) throw new TypeError("field argument is required");
-    // get fields array
-    var fields = !Array.isArray(field) ? parse(String(field)) : field;
-    // assert on invalid field names
-    for(var j = 0; j < fields.length; j++){
-        if (!FIELD_NAME_REGEXP.test(fields[j])) throw new TypeError("field argument contains an invalid header name");
-    }
-    // existing, unspecified vary
-    if (header === "*") return header;
-    // enumerate current values
-    var val = header;
-    var vals = parse(header.toLowerCase());
-    // unspecified vary
-    if (fields.indexOf("*") !== -1 || vals.indexOf("*") !== -1) return "*";
-    for(var i = 0; i < fields.length; i++){
-        var fld = fields[i].toLowerCase();
-        // append value (case-preserving)
-        if (vals.indexOf(fld) === -1) {
-            vals.push(fld);
-            val = val ? val + ", " + fields[i] : fields[i];
-        }
-    }
-    return val;
-}
-/**
- * Parse a vary header into an array.
- *
- * @param {String} header
- * @return {Array}
- * @private
- */ function parse(header) {
-    var end = 0;
-    var list = [];
-    var start = 0;
-    // gather tokens
-    for(var i = 0, len = header.length; i < len; i++)switch(header.charCodeAt(i)){
-        case 0x20:
-            /*   */ if (start === end) start = end = i + 1;
-            break;
-        case 0x2c:
-            /* , */ list.push(header.substring(start, end));
-            start = end = i + 1;
-            break;
-        default:
-            end = i + 1;
-            break;
-    }
-    // final token
-    list.push(header.substring(start, end));
-    return list;
-}
-/**
- * Mark that a request is varied on a header field.
- *
- * @param {Object} res
- * @param {String|Array} field
- * @public
- */ function vary(res, field) {
-    if (!res || !res.getHeader || !res.setHeader) // quack quack
-    throw new TypeError("res argument is required");
-    // get existing header
-    var val = res.getHeader("Vary") || "";
-    var header = Array.isArray(val) ? val.join(", ") : String(val);
-    // set new header
-    if (val = append(header, field)) res.setHeader("Vary", val);
-}
-
-},{}],"km3Ru":[function(require,module,exports) {
-"use strict";
-var Refresh = require("react-refresh/runtime");
-function debounce(func, delay) {
-    var args;
-    var timeout = undefined;
-    return function(args) {
-        clearTimeout(timeout);
-        timeout = setTimeout(function() {
-            timeout = undefined;
-            func.call(null, args);
-        }, delay);
-    };
-}
-var enqueueUpdate = debounce(function() {
-    Refresh.performReactRefresh();
-}, 30); // Everthing below is either adapted or copied from
-// https://github.com/facebook/metro/blob/61de16bd1edd7e738dd0311c89555a644023ab2d/packages/metro/src/lib/polyfills/require.js
-// MIT License - Copyright (c) Facebook, Inc. and its affiliates.
-module.exports.prelude = function(module1) {
-    window.$RefreshReg$ = function(type, id) {
-        Refresh.register(type, module1.id + " " + id);
-    };
-    window.$RefreshSig$ = Refresh.createSignatureFunctionForTransform;
-};
-module.exports.postlude = function(module1) {
-    if (isReactRefreshBoundary(module1.exports)) {
-        registerExportsForReactRefresh(module1);
-        if (module1.hot) {
-            module1.hot.dispose(function(data) {
-                if (Refresh.hasUnrecoverableErrors()) window.location.reload();
-                data.prevExports = module1.exports;
-            });
-            module1.hot.accept(function(getParents) {
-                var prevExports = module1.hot.data.prevExports;
-                var nextExports = module1.exports; // Since we just executed the code for it, it's possible
-                // that the new exports make it ineligible for being a boundary.
-                var isNoLongerABoundary = !isReactRefreshBoundary(nextExports); // It can also become ineligible if its exports are incompatible
-                // with the previous exports.
-                // For example, if you add/remove/change exports, we'll want
-                // to re-execute the importing modules, and force those components
-                // to re-render. Similarly, if you convert a class component
-                // to a function, we want to invalidate the boundary.
-                var didInvalidate = shouldInvalidateReactRefreshBoundary(prevExports, nextExports);
-                if (isNoLongerABoundary || didInvalidate) {
-                    // We'll be conservative. The only case in which we won't do a full
-                    // reload is if all parent modules are also refresh boundaries.
-                    // In that case we'll add them to the current queue.
-                    var parents = getParents();
-                    if (parents.length === 0) {
-                        // Looks like we bubbled to the root. Can't recover from that.
-                        window.location.reload();
-                        return;
-                    }
-                    return parents;
-                }
-                enqueueUpdate();
-            });
-        }
-    }
-};
-function isReactRefreshBoundary(exports) {
-    if (Refresh.isLikelyComponentType(exports)) return true;
-    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
-    return false;
-    var hasExports = false;
-    var areAllExportsComponents = true;
-    let isESM = "__esModule" in exports;
-    for(var key in exports){
-        hasExports = true;
-        if (key === "__esModule") continue;
-        var desc = Object.getOwnPropertyDescriptor(exports, key);
-        if (desc && desc.get && !isESM) // Don't invoke getters for CJS as they may have side effects.
-        return false;
-        var exportValue = exports[key];
-        if (!Refresh.isLikelyComponentType(exportValue)) areAllExportsComponents = false;
-    }
-    return hasExports && areAllExportsComponents;
-}
-function shouldInvalidateReactRefreshBoundary(prevExports, nextExports) {
-    var prevSignature = getRefreshBoundarySignature(prevExports);
-    var nextSignature = getRefreshBoundarySignature(nextExports);
-    if (prevSignature.length !== nextSignature.length) return true;
-    for(var i = 0; i < nextSignature.length; i++){
-        if (prevSignature[i] !== nextSignature[i]) return true;
-    }
-    return false;
-} // When this signature changes, it's unsafe to stop at this refresh boundary.
-function getRefreshBoundarySignature(exports) {
-    var signature = [];
-    signature.push(Refresh.getFamilyByType(exports));
-    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
-    // (This is important for legacy environments.)
-    return signature;
-    let isESM = "__esModule" in exports;
-    for(var key in exports){
-        if (key === "__esModule") continue;
-        var desc = Object.getOwnPropertyDescriptor(exports, key);
-        if (desc && desc.get && !isESM) continue;
-        var exportValue = exports[key];
-        signature.push(key);
-        signature.push(Refresh.getFamilyByType(exportValue));
-    }
-    return signature;
-}
-function registerExportsForReactRefresh(module1) {
-    var exports = module1.exports, id = module1.id;
-    Refresh.register(exports, id + " %exports%");
-    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
-    // (This is important for legacy environments.)
-    return;
-    let isESM = "__esModule" in exports;
-    for(var key in exports){
-        var desc = Object.getOwnPropertyDescriptor(exports, key);
-        if (desc && desc.get && !isESM) continue;
-        var exportValue = exports[key];
-        Refresh.register(exportValue, id + " %exports% " + key);
-    }
-}
-
-},{"react-refresh/runtime":"786KC"}],"bwuIu":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$67b2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$67b2.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "MovieCard", ()=>MovieCard);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _propTypes = require("prop-types");
-var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
-class MovieCard extends (0, _reactDefault.default).Component {
-    render() {
-        // movie in this.props is the name of the props used in <MovieCard />
-        const { movie , onMovieClick  } = this.props;
-        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            onClick: ()=>onMovieClick(movie),
-            className: "movie-card",
-            children: [
-                " ",
-                movie.Title
-            ]
-        }, void 0, true, {
-            fileName: "src/components/movie-card/movie-card.jsx",
-            lineNumber: 10,
-            columnNumber: 7
-        }, this);
-    }
-}
-MovieCard.propTypes = {
-    movie: (0, _propTypesDefault.default).shape({
-        Title: (0, _propTypesDefault.default).string.isRequired,
-        Description: (0, _propTypesDefault.default).string.isRequired,
-        Genre: (0, _propTypesDefault.default).shape({
-            Name: (0, _propTypesDefault.default).string.isRequired,
-            Description: (0, _propTypesDefault.default).string.isRequired
-        }),
-        Director: (0, _propTypesDefault.default).shape({
-            Name: (0, _propTypesDefault.default).string.isRequired,
-            Bio: (0, _propTypesDefault.default).string.isRequired,
-            Birth: (0, _propTypesDefault.default).string.isRequired,
-            Death: (0, _propTypesDefault.default).string.isRequired
-        }),
-        ImagePath: (0, _propTypesDefault.default).string.isRequired
-    }).isRequired,
-    onMovieClick: Proptypes.func.isRequired
-};
-
-  $parcel$ReactRefreshHelpers$67b2.postlude(module);
+  $parcel$ReactRefreshHelpers$789c.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
@@ -32637,7 +32181,613 @@ printWarning = function(text) {
 };
 module.exports = checkPropTypes;
 
-},{"./lib/ReactPropTypesSecret":"jZTZJ","./lib/has":"fqKuf"}],"ggaUx":[function(require,module,exports) {
+},{"./lib/ReactPropTypesSecret":"jZTZJ","./lib/has":"fqKuf"}],"km3Ru":[function(require,module,exports) {
+"use strict";
+var Refresh = require("react-refresh/runtime");
+function debounce(func, delay) {
+    var args;
+    var timeout = undefined;
+    return function(args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(function() {
+            timeout = undefined;
+            func.call(null, args);
+        }, delay);
+    };
+}
+var enqueueUpdate = debounce(function() {
+    Refresh.performReactRefresh();
+}, 30); // Everthing below is either adapted or copied from
+// https://github.com/facebook/metro/blob/61de16bd1edd7e738dd0311c89555a644023ab2d/packages/metro/src/lib/polyfills/require.js
+// MIT License - Copyright (c) Facebook, Inc. and its affiliates.
+module.exports.prelude = function(module1) {
+    window.$RefreshReg$ = function(type, id) {
+        Refresh.register(type, module1.id + " " + id);
+    };
+    window.$RefreshSig$ = Refresh.createSignatureFunctionForTransform;
+};
+module.exports.postlude = function(module1) {
+    if (isReactRefreshBoundary(module1.exports)) {
+        registerExportsForReactRefresh(module1);
+        if (module1.hot) {
+            module1.hot.dispose(function(data) {
+                if (Refresh.hasUnrecoverableErrors()) window.location.reload();
+                data.prevExports = module1.exports;
+            });
+            module1.hot.accept(function(getParents) {
+                var prevExports = module1.hot.data.prevExports;
+                var nextExports = module1.exports; // Since we just executed the code for it, it's possible
+                // that the new exports make it ineligible for being a boundary.
+                var isNoLongerABoundary = !isReactRefreshBoundary(nextExports); // It can also become ineligible if its exports are incompatible
+                // with the previous exports.
+                // For example, if you add/remove/change exports, we'll want
+                // to re-execute the importing modules, and force those components
+                // to re-render. Similarly, if you convert a class component
+                // to a function, we want to invalidate the boundary.
+                var didInvalidate = shouldInvalidateReactRefreshBoundary(prevExports, nextExports);
+                if (isNoLongerABoundary || didInvalidate) {
+                    // We'll be conservative. The only case in which we won't do a full
+                    // reload is if all parent modules are also refresh boundaries.
+                    // In that case we'll add them to the current queue.
+                    var parents = getParents();
+                    if (parents.length === 0) {
+                        // Looks like we bubbled to the root. Can't recover from that.
+                        window.location.reload();
+                        return;
+                    }
+                    return parents;
+                }
+                enqueueUpdate();
+            });
+        }
+    }
+};
+function isReactRefreshBoundary(exports) {
+    if (Refresh.isLikelyComponentType(exports)) return true;
+    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
+    return false;
+    var hasExports = false;
+    var areAllExportsComponents = true;
+    let isESM = "__esModule" in exports;
+    for(var key in exports){
+        hasExports = true;
+        if (key === "__esModule") continue;
+        var desc = Object.getOwnPropertyDescriptor(exports, key);
+        if (desc && desc.get && !isESM) // Don't invoke getters for CJS as they may have side effects.
+        return false;
+        var exportValue = exports[key];
+        if (!Refresh.isLikelyComponentType(exportValue)) areAllExportsComponents = false;
+    }
+    return hasExports && areAllExportsComponents;
+}
+function shouldInvalidateReactRefreshBoundary(prevExports, nextExports) {
+    var prevSignature = getRefreshBoundarySignature(prevExports);
+    var nextSignature = getRefreshBoundarySignature(nextExports);
+    if (prevSignature.length !== nextSignature.length) return true;
+    for(var i = 0; i < nextSignature.length; i++){
+        if (prevSignature[i] !== nextSignature[i]) return true;
+    }
+    return false;
+} // When this signature changes, it's unsafe to stop at this refresh boundary.
+function getRefreshBoundarySignature(exports) {
+    var signature = [];
+    signature.push(Refresh.getFamilyByType(exports));
+    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
+    // (This is important for legacy environments.)
+    return signature;
+    let isESM = "__esModule" in exports;
+    for(var key in exports){
+        if (key === "__esModule") continue;
+        var desc = Object.getOwnPropertyDescriptor(exports, key);
+        if (desc && desc.get && !isESM) continue;
+        var exportValue = exports[key];
+        signature.push(key);
+        signature.push(Refresh.getFamilyByType(exportValue));
+    }
+    return signature;
+}
+function registerExportsForReactRefresh(module1) {
+    var exports = module1.exports, id = module1.id;
+    Refresh.register(exports, id + " %exports%");
+    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
+    // (This is important for legacy environments.)
+    return;
+    let isESM = "__esModule" in exports;
+    for(var key in exports){
+        var desc = Object.getOwnPropertyDescriptor(exports, key);
+        if (desc && desc.get && !isESM) continue;
+        var exportValue = exports[key];
+        Refresh.register(exportValue, id + " %exports% " + key);
+    }
+}
+
+},{"react-refresh/runtime":"786KC"}],"9YtA0":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$9fee = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$9fee.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "LoginView", ()=>LoginView);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _cors = require("cors");
+var _corsDefault = parcelHelpers.interopDefault(_cors);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _s = $RefreshSig$();
+function LoginView(props) {
+    _s();
+    const [username, setUsername] = (0, _react.useState)("");
+    const [password, setPassword] = (0, _react.useState)("");
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        console.log(username, password);
+        /* send a request to the server for authentication */ /* then call props.onLoggedIn(username) */ props.onLoggedIn(username);
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                children: [
+                    "Username:",
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "text",
+                        value: username,
+                        onChange: (e)=>setUsername(e.target.value)
+                    }, void 0, false, {
+                        fileName: "src/components/login-view/login-view.jsx",
+                        lineNumber: 20,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/login-view/login-view.jsx",
+                lineNumber: 18,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                children: [
+                    "Password:",
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "password",
+                        value: password,
+                        onChange: (e)=>setPassword(e.target.value)
+                    }, void 0, false, {
+                        fileName: "src/components/login-view/login-view.jsx",
+                        lineNumber: 24,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/login-view/login-view.jsx",
+                lineNumber: 22,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                type: "submit",
+                onClick: handleSubmit,
+                children: "Submit"
+            }, void 0, false, {
+                fileName: "src/components/login-view/login-view.jsx",
+                lineNumber: 26,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/login-view/login-view.jsx",
+        lineNumber: 17,
+        columnNumber: 5
+    }, this);
+}
+_s(LoginView, "9FY2cPL9VBDmuhjwpF2ik6flsHs=");
+_c = LoginView;
+var _c;
+$RefreshReg$(_c, "LoginView");
+
+  $parcel$ReactRefreshHelpers$9fee.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","cors":"jOdGr","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"jOdGr":[function(require,module,exports) {
+(function() {
+    "use strict";
+    var assign = require("object-assign");
+    var vary = require("vary");
+    var defaults = {
+        origin: "*",
+        methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+        preflightContinue: false,
+        optionsSuccessStatus: 204
+    };
+    function isString(s) {
+        return typeof s === "string" || s instanceof String;
+    }
+    function isOriginAllowed(origin, allowedOrigin) {
+        if (Array.isArray(allowedOrigin)) {
+            for(var i = 0; i < allowedOrigin.length; ++i){
+                if (isOriginAllowed(origin, allowedOrigin[i])) return true;
+            }
+            return false;
+        } else if (isString(allowedOrigin)) return origin === allowedOrigin;
+        else if (allowedOrigin instanceof RegExp) return allowedOrigin.test(origin);
+        else return !!allowedOrigin;
+    }
+    function configureOrigin(options, req) {
+        var requestOrigin = req.headers.origin, headers = [], isAllowed;
+        if (!options.origin || options.origin === "*") // allow any origin
+        headers.push([
+            {
+                key: "Access-Control-Allow-Origin",
+                value: "*"
+            }
+        ]);
+        else if (isString(options.origin)) {
+            // fixed origin
+            headers.push([
+                {
+                    key: "Access-Control-Allow-Origin",
+                    value: options.origin
+                }
+            ]);
+            headers.push([
+                {
+                    key: "Vary",
+                    value: "Origin"
+                }
+            ]);
+        } else {
+            isAllowed = isOriginAllowed(requestOrigin, options.origin);
+            // reflect origin
+            headers.push([
+                {
+                    key: "Access-Control-Allow-Origin",
+                    value: isAllowed ? requestOrigin : false
+                }
+            ]);
+            headers.push([
+                {
+                    key: "Vary",
+                    value: "Origin"
+                }
+            ]);
+        }
+        return headers;
+    }
+    function configureMethods(options) {
+        var methods = options.methods;
+        if (methods.join) methods = options.methods.join(","); // .methods is an array, so turn it into a string
+        return {
+            key: "Access-Control-Allow-Methods",
+            value: methods
+        };
+    }
+    function configureCredentials(options) {
+        if (options.credentials === true) return {
+            key: "Access-Control-Allow-Credentials",
+            value: "true"
+        };
+        return null;
+    }
+    function configureAllowedHeaders(options, req) {
+        var allowedHeaders = options.allowedHeaders || options.headers;
+        var headers = [];
+        if (!allowedHeaders) {
+            allowedHeaders = req.headers["access-control-request-headers"]; // .headers wasn't specified, so reflect the request headers
+            headers.push([
+                {
+                    key: "Vary",
+                    value: "Access-Control-Request-Headers"
+                }
+            ]);
+        } else if (allowedHeaders.join) allowedHeaders = allowedHeaders.join(","); // .headers is an array, so turn it into a string
+        if (allowedHeaders && allowedHeaders.length) headers.push([
+            {
+                key: "Access-Control-Allow-Headers",
+                value: allowedHeaders
+            }
+        ]);
+        return headers;
+    }
+    function configureExposedHeaders(options) {
+        var headers = options.exposedHeaders;
+        if (!headers) return null;
+        else if (headers.join) headers = headers.join(","); // .headers is an array, so turn it into a string
+        if (headers && headers.length) return {
+            key: "Access-Control-Expose-Headers",
+            value: headers
+        };
+        return null;
+    }
+    function configureMaxAge(options) {
+        var maxAge = (typeof options.maxAge === "number" || options.maxAge) && options.maxAge.toString();
+        if (maxAge && maxAge.length) return {
+            key: "Access-Control-Max-Age",
+            value: maxAge
+        };
+        return null;
+    }
+    function applyHeaders(headers, res) {
+        for(var i = 0, n = headers.length; i < n; i++){
+            var header = headers[i];
+            if (header) {
+                if (Array.isArray(header)) applyHeaders(header, res);
+                else if (header.key === "Vary" && header.value) vary(res, header.value);
+                else if (header.value) res.setHeader(header.key, header.value);
+            }
+        }
+    }
+    function cors(options, req, res, next) {
+        var headers = [], method = req.method && req.method.toUpperCase && req.method.toUpperCase();
+        if (method === "OPTIONS") {
+            // preflight
+            headers.push(configureOrigin(options, req));
+            headers.push(configureCredentials(options, req));
+            headers.push(configureMethods(options, req));
+            headers.push(configureAllowedHeaders(options, req));
+            headers.push(configureMaxAge(options, req));
+            headers.push(configureExposedHeaders(options, req));
+            applyHeaders(headers, res);
+            if (options.preflightContinue) next();
+            else {
+                // Safari (and potentially other browsers) need content-length 0,
+                //   for 204 or they just hang waiting for a body
+                res.statusCode = options.optionsSuccessStatus;
+                res.setHeader("Content-Length", "0");
+                res.end();
+            }
+        } else {
+            // actual response
+            headers.push(configureOrigin(options, req));
+            headers.push(configureCredentials(options, req));
+            headers.push(configureExposedHeaders(options, req));
+            applyHeaders(headers, res);
+            next();
+        }
+    }
+    function middlewareWrapper(o) {
+        // if options are static (either via defaults or custom options passed in), wrap in a function
+        var optionsCallback = null;
+        if (typeof o === "function") optionsCallback = o;
+        else optionsCallback = function(req, cb) {
+            cb(null, o);
+        };
+        return function corsMiddleware(req, res, next) {
+            optionsCallback(req, function(err, options) {
+                if (err) next(err);
+                else {
+                    var corsOptions = assign({}, defaults, options);
+                    var originCallback = null;
+                    if (corsOptions.origin && typeof corsOptions.origin === "function") originCallback = corsOptions.origin;
+                    else if (corsOptions.origin) originCallback = function(origin, cb) {
+                        cb(null, corsOptions.origin);
+                    };
+                    if (originCallback) originCallback(req.headers.origin, function(err2, origin) {
+                        if (err2 || !origin) next(err2);
+                        else {
+                            corsOptions.origin = origin;
+                            cors(corsOptions, req, res, next);
+                        }
+                    });
+                    else next();
+                }
+            });
+        };
+    }
+    // can pass either an options hash, an options delegate, or nothing
+    module.exports = middlewareWrapper;
+})();
+
+},{"object-assign":"eJecX","vary":"9FfFY"}],"eJecX":[function(require,module,exports) {
+/*
+object-assign
+(c) Sindre Sorhus
+@license MIT
+*/ "use strict";
+/* eslint-disable no-unused-vars */ var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+function toObject(val) {
+    if (val === null || val === undefined) throw new TypeError("Object.assign cannot be called with null or undefined");
+    return Object(val);
+}
+function shouldUseNative() {
+    try {
+        if (!Object.assign) return false;
+        // Detect buggy property enumeration order in older V8 versions.
+        // https://bugs.chromium.org/p/v8/issues/detail?id=4118
+        var test1 = new String("abc"); // eslint-disable-line no-new-wrappers
+        test1[5] = "de";
+        if (Object.getOwnPropertyNames(test1)[0] === "5") return false;
+        // https://bugs.chromium.org/p/v8/issues/detail?id=3056
+        var test2 = {};
+        for(var i = 0; i < 10; i++)test2["_" + String.fromCharCode(i)] = i;
+        var order2 = Object.getOwnPropertyNames(test2).map(function(n) {
+            return test2[n];
+        });
+        if (order2.join("") !== "0123456789") return false;
+        // https://bugs.chromium.org/p/v8/issues/detail?id=3056
+        var test3 = {};
+        "abcdefghijklmnopqrst".split("").forEach(function(letter) {
+            test3[letter] = letter;
+        });
+        if (Object.keys(Object.assign({}, test3)).join("") !== "abcdefghijklmnopqrst") return false;
+        return true;
+    } catch (err) {
+        // We don't expect any of the above to throw, but better to be safe.
+        return false;
+    }
+}
+module.exports = shouldUseNative() ? Object.assign : function(target, source) {
+    var from;
+    var to = toObject(target);
+    var symbols;
+    for(var s = 1; s < arguments.length; s++){
+        from = Object(arguments[s]);
+        for(var key in from)if (hasOwnProperty.call(from, key)) to[key] = from[key];
+        if (getOwnPropertySymbols) {
+            symbols = getOwnPropertySymbols(from);
+            for(var i = 0; i < symbols.length; i++)if (propIsEnumerable.call(from, symbols[i])) to[symbols[i]] = from[symbols[i]];
+        }
+    }
+    return to;
+};
+
+},{}],"9FfFY":[function(require,module,exports) {
+/*!
+ * vary
+ * Copyright(c) 2014-2017 Douglas Christopher Wilson
+ * MIT Licensed
+ */ "use strict";
+/**
+ * Module exports.
+ */ module.exports = vary;
+module.exports.append = append;
+/**
+ * RegExp to match field-name in RFC 7230 sec 3.2
+ *
+ * field-name    = token
+ * token         = 1*tchar
+ * tchar         = "!" / "#" / "$" / "%" / "&" / "'" / "*"
+ *               / "+" / "-" / "." / "^" / "_" / "`" / "|" / "~"
+ *               / DIGIT / ALPHA
+ *               ; any VCHAR, except delimiters
+ */ var FIELD_NAME_REGEXP = /^[!#$%&'*+\-.^_`|~0-9A-Za-z]+$/;
+/**
+ * Append a field to a vary header.
+ *
+ * @param {String} header
+ * @param {String|Array} field
+ * @return {String}
+ * @public
+ */ function append(header, field) {
+    if (typeof header !== "string") throw new TypeError("header argument is required");
+    if (!field) throw new TypeError("field argument is required");
+    // get fields array
+    var fields = !Array.isArray(field) ? parse(String(field)) : field;
+    // assert on invalid field names
+    for(var j = 0; j < fields.length; j++){
+        if (!FIELD_NAME_REGEXP.test(fields[j])) throw new TypeError("field argument contains an invalid header name");
+    }
+    // existing, unspecified vary
+    if (header === "*") return header;
+    // enumerate current values
+    var val = header;
+    var vals = parse(header.toLowerCase());
+    // unspecified vary
+    if (fields.indexOf("*") !== -1 || vals.indexOf("*") !== -1) return "*";
+    for(var i = 0; i < fields.length; i++){
+        var fld = fields[i].toLowerCase();
+        // append value (case-preserving)
+        if (vals.indexOf(fld) === -1) {
+            vals.push(fld);
+            val = val ? val + ", " + fields[i] : fields[i];
+        }
+    }
+    return val;
+}
+/**
+ * Parse a vary header into an array.
+ *
+ * @param {String} header
+ * @return {Array}
+ * @private
+ */ function parse(header) {
+    var end = 0;
+    var list = [];
+    var start = 0;
+    // gather tokens
+    for(var i = 0, len = header.length; i < len; i++)switch(header.charCodeAt(i)){
+        case 0x20:
+            /*   */ if (start === end) start = end = i + 1;
+            break;
+        case 0x2c:
+            /* , */ list.push(header.substring(start, end));
+            start = end = i + 1;
+            break;
+        default:
+            end = i + 1;
+            break;
+    }
+    // final token
+    list.push(header.substring(start, end));
+    return list;
+}
+/**
+ * Mark that a request is varied on a header field.
+ *
+ * @param {Object} res
+ * @param {String|Array} field
+ * @public
+ */ function vary(res, field) {
+    if (!res || !res.getHeader || !res.setHeader) // quack quack
+    throw new TypeError("res argument is required");
+    // get existing header
+    var val = res.getHeader("Vary") || "";
+    var header = Array.isArray(val) ? val.join(", ") : String(val);
+    // set new header
+    if (val = append(header, field)) res.setHeader("Vary", val);
+}
+
+},{}],"bwuIu":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$67b2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$67b2.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MovieCard", ()=>MovieCard);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+class MovieCard extends (0, _reactDefault.default).Component {
+    render() {
+        // movie in this.props is the name of the props used in <MovieCard />
+        const { movie , onMovieClick  } = this.props;
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            onClick: ()=>onMovieClick(movie),
+            className: "movie-card",
+            children: [
+                " ",
+                movie.Title
+            ]
+        }, void 0, true, {
+            fileName: "src/components/movie-card/movie-card.jsx",
+            lineNumber: 10,
+            columnNumber: 7
+        }, this);
+    }
+}
+MovieCard.propTypes = {
+    movie: (0, _propTypesDefault.default).shape({
+        Title: (0, _propTypesDefault.default).string.isRequired,
+        Description: (0, _propTypesDefault.default).string.isRequired,
+        Genre: (0, _propTypesDefault.default).shape({
+            Name: (0, _propTypesDefault.default).string.isRequired,
+            Description: (0, _propTypesDefault.default).string.isRequired
+        }),
+        Director: (0, _propTypesDefault.default).shape({
+            Name: (0, _propTypesDefault.default).string.isRequired,
+            Bio: (0, _propTypesDefault.default).string.isRequired,
+            Birth: (0, _propTypesDefault.default).string.isRequired,
+            Death: (0, _propTypesDefault.default).string.isRequired
+        }),
+        ImagePath: (0, _propTypesDefault.default).string.isRequired
+    }).isRequired,
+    onMovieClick: (0, _propTypesDefault.default).func.isRequired
+};
+
+  $parcel$ReactRefreshHelpers$67b2.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"ggaUx":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$e9f6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
