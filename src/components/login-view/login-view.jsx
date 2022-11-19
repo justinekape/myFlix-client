@@ -1,5 +1,6 @@
 import e from 'cors';
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 export function LoginView(props) {
   const [ username, setUsername ] = useState('');
@@ -13,6 +14,11 @@ export function LoginView(props) {
     props.onLoggedIn(username);
   };
 
+  const handleRegister = (e) => {
+    e.preventDefault();
+    props.onRegistration();
+  };
+
   return (
     <form>
       <label>
@@ -24,6 +30,7 @@ export function LoginView(props) {
         <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
       </label>
       <button type="submit" onClick={handleSubmit}>Submit</button>
+      <button type="button">Register Here</button>
     </form>
   );
 }
