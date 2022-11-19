@@ -27104,21 +27104,21 @@ class MainView extends (0, _reactDefault.default).Component {
             selectedMovie: movie
         });
     }
-    /* registration */ onRegistration(newUser) {
-        this.setState({
-            newUser
-        });
-    }
     /* when a user successfully logs in, this function updates the 'user' property in state to that particular user */ onLoggedIn(user) {
         this.setState({
             user
+        });
+    }
+    onRegistration(newUser) {
+        this.setState({
+            newUser
         });
     }
     render() {
         const { movies , selectedMovie , user , newUser  } = this.state;
         if (!newUser) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _registrationView.RegistrationView), {}, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 59,
+            lineNumber: 58,
             columnNumber: 26
         }, this);
         /* if there's no user, the LoginView is rendered. if there's a user logged in, the user details are passed as a prop to the LoginView */ if (!user) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginView.LoginView), {
@@ -27126,15 +27126,15 @@ class MainView extends (0, _reactDefault.default).Component {
             onRegistration: (newUser)=>this.onRegistration(newUser)
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 62,
-            columnNumber: 23
+            lineNumber: 63,
+            columnNumber: 9
         }, this);
         // before the movies have been loaded
         if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             className: "main-view"
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 65,
+            lineNumber: 70,
             columnNumber: 37
         }, this);
         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27146,7 +27146,7 @@ class MainView extends (0, _reactDefault.default).Component {
                 }
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 71,
+                lineNumber: 76,
                 columnNumber: 15
             }, this) : movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                     movie: movie,
@@ -27155,12 +27155,12 @@ class MainView extends (0, _reactDefault.default).Component {
                     }
                 }, movie._id, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 73,
+                    lineNumber: 78,
                     columnNumber: 15
                 }, this))
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 68,
+            lineNumber: 73,
             columnNumber: 9
         }, this);
     }
@@ -32392,6 +32392,7 @@ function LoginView(props) {
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 type: "button",
+                onClick: handleRegister,
                 children: "Register Here"
             }, void 0, false, {
                 fileName: "src/components/login-view/login-view.jsx",
@@ -32407,6 +32408,9 @@ function LoginView(props) {
 }
 _s(LoginView, "9FY2cPL9VBDmuhjwpF2ik6flsHs=");
 _c = LoginView;
+LoginView.propTypes = {
+    onLoggedIn: (0, _propTypesDefault.default).func.isRequired
+};
 var _c;
 $RefreshReg$(_c, "LoginView");
 
