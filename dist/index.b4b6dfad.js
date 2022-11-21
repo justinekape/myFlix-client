@@ -32419,7 +32419,7 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","cors":"jOdGr","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","prop-types":"7wKI2"}],"jOdGr":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","cors":"jOdGr","react":"21dqq","prop-types":"7wKI2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"jOdGr":[function(require,module,exports) {
 (function() {
     "use strict";
     var assign = require("object-assign");
@@ -32838,6 +32838,7 @@ class MovieView extends (0, _reactDefault.default).Component {
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                     className: "movie-poster",
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                        crossOrigin: "anonymous",
                         src: movie.ImagePath
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
