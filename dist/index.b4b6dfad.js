@@ -27133,30 +27133,31 @@ const MainView = ()=>{
         token
     ]);
     // REST OF THE CODE
-    if (!user) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginView.LoginView), {
-        onLoggedIn: (user, token)=>{
-            setUser(user);
-            setToken(token);
-        }
-    }, void 0, false, {
-        fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 40,
-        columnNumber: 5
-    }, undefined);
-    if (!newUser) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signupView.SignupView), {
-        onSignUp: (newUser)=>{
-            setNewUser(newUser);
-        }
-    }, void 0, false, {
-        fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 51,
-        columnNumber: 5
-    }, undefined);
+    if (!user) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginView.LoginView), {
+                onLoggedIn: (user, token)=>{
+                    setUser(user);
+                    setToken(token);
+                }
+            }, void 0, false, {
+                fileName: "src/components/main-view/main-view.jsx",
+                lineNumber: 41,
+                columnNumber: 7
+            }, undefined),
+            "or",
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signupView.SignUpView), {}, void 0, false, {
+                fileName: "src/components/main-view/main-view.jsx",
+                lineNumber: 46,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "main-view"
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 59,
+        lineNumber: 51,
         columnNumber: 33
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27172,17 +27173,17 @@ const MainView = ()=>{
                     }
                 }, void 0, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 68,
+                    lineNumber: 60,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 67,
+                lineNumber: 59,
                 columnNumber: 17
             }, undefined)
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 66,
+            lineNumber: 58,
             columnNumber: 15
         }, undefined) : movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                 movie: movie,
@@ -27191,12 +27192,12 @@ const MainView = ()=>{
                 }
             }, movie._id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 73,
+                lineNumber: 65,
                 columnNumber: 15
             }, undefined))
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 62,
+        lineNumber: 54,
         columnNumber: 9
     }, undefined);
 } // ****** OLD CODE ******
@@ -32563,14 +32564,14 @@ $parcel$ReactRefreshHelpers$73d1.prelude(module);
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "SignupView", ()=>SignupView);
+parcelHelpers.export(exports, "SignUpView", ()=>SignUpView);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _cors = require("cors");
 var _corsDefault = parcelHelpers.interopDefault(_cors);
 // import PropTypes from 'prop-types';
 var _react = require("react");
 var _s = $RefreshSig$();
-const SignupView = ()=>{
+const SignUpView = ()=>{
     _s();
     const [username, setUsername] = (0, _react.useState)("");
     const [password, setPassword] = (0, _react.useState)("");
@@ -32695,10 +32696,10 @@ const SignupView = ()=>{
  //   onSignUp: PropTypes.func.isRequired
  // };
 ;
-_s(SignupView, "jsOQN3GC2XlBG9ITlzCdpyJOnso=");
-_c = SignupView;
+_s(SignUpView, "jsOQN3GC2XlBG9ITlzCdpyJOnso=");
+_c = SignUpView;
 var _c;
-$RefreshReg$(_c, "SignupView");
+$RefreshReg$(_c, "SignUpView");
 
   $parcel$ReactRefreshHelpers$73d1.postlude(module);
 } finally {

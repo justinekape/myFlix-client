@@ -4,7 +4,7 @@ import axios from 'axios';
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
-import { SignupView } from '../signup-view/signup-view';
+import { SignUpView } from '../signup-view/signup-view';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
@@ -37,23 +37,15 @@ useEffect(() => {
 
 if (!user) {
   return (
-    <LoginView 
-      onLoggedIn={(user, token) => {
+    <>
+      <LoginView onLoggedIn={(user, token) => {
         setUser(user);
         setToken(token);
-      }}
-    />
+      }} />
+      or
+      <SignUpView />
+    </>
   );
-}
-
-if (!newUser) {
-  return (
-    <SignupView
-      onSignUp={(newUser) => {
-        setNewUser(newUser);
-      }}
-    />
-  )
 }
 
 if (movies.length === 0) return <div className="main-view" />; 

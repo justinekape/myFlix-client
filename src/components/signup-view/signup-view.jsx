@@ -2,7 +2,7 @@ import e from "cors";
 // import PropTypes from 'prop-types';
 import { useState } from "react";
 
-export const SignupView = () => {
+export const SignUpView = () => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
