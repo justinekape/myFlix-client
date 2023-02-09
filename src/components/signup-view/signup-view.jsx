@@ -1,3 +1,5 @@
+import e from "cors";
+// import PropTypes from 'prop-types';
 import { useState } from "react";
 
 export const SignupView = () => {
@@ -7,7 +9,34 @@ export const SignupView = () => {
   const [email, setEmail] = useState("");
   const [birthday, setBirthday] = useState("");
 
-  const handleSubmit = (event) => {};
+  const handleSubmit = (event) => {
+    e.preventDefault();
+    console.log(username, password, email, birthday);
+
+    const data = {
+      Username: username,
+      Password: password,
+      Email: email,
+      Birthday: birthday
+    };
+
+    fetch('https://jb-myflix.herokuapp.com/users', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then((response) => {
+      if (response.ok) {
+        alert('Signup successful');
+        props.onSignUp(username);
+      } else {
+        alert('Signup failed');
+      }
+    });
+
+
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -50,4 +79,8 @@ export const SignupView = () => {
       <button type="submit">Submit</button>
     </form>
   );
-};
+}
+
+// SignUpView.propTypes = {
+//   onSignUp: PropTypes.func.isRequired
+// };

@@ -36,6 +36,7 @@ export const LoginView = ({ onLoggedIn }) => {
   const handleSubmit = (event) => {
     // this prevents the default behavior of the form which is to reload the entire page
     event.preventDefault();
+    console.log(username, password);
 
     const data = {
       Username: username,
@@ -55,7 +56,7 @@ export const LoginView = ({ onLoggedIn }) => {
         if (data.user) {
           localStorage.setItem('user', JSON.stringify(data.user));
           localStorage.setItem('token', data.token);
-          onLoggedIn(data.user, data.token);
+          props.onLoggedIn(data.user, data.token);
       } else {
         alert("No such user");
       }
