@@ -52,7 +52,7 @@ export const SignUpView = () => {
       <label>
         Password:
         <input 
-          type="pasword"
+          type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
