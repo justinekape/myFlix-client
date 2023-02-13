@@ -27119,7 +27119,7 @@ const MainView = ()=>{
     const [token, setToken] = (0, _react.useState)(storedToken ? storedToken : null);
     const [movies, setMovies] = (0, _react.useState)([]);
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
-    const [newUser, setNewUser] = (0, _react.useState)("");
+    // const [newUser, setNewUser] = useState("");
     (0, _react.useEffect)(()=>{
         if (!token) return;
         fetch("https://jb-myflix.herokuapp.com/movies", {
@@ -27278,7 +27278,7 @@ const MainView = ()=>{
  //   }
  //   // <button onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>Logout</button>
 ;
-_s(MainView, "KA+OKy1ZQUIBX98aqm+ivUF0/bI=");
+_s(MainView, "skShail9kO25ilQX788tJ78Yq3c=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
