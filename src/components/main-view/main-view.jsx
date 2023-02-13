@@ -4,7 +4,7 @@ import axios from 'axios';
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
-import { SignUpView } from '../signup-view/signup-view';
+import { SignupView } from '../signup-view/signup-view';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
@@ -43,7 +43,7 @@ if (!user) {
         setToken(token);
       }} />
       or
-      <SignUpView />
+      <SignupView />
     </>
   );
 }

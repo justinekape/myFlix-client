@@ -2,7 +2,7 @@ import e from "cors";
 // import PropTypes from 'prop-types';
 import { useState } from "react";
 
-export const SignUpView = () => {
+export const SignupView = () => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -29,7 +29,8 @@ export const SignUpView = () => {
     }).then((response) => {
       if (response.ok) {
         alert('Signup successful');
-        props.onSignUp(username);
+        // props.onSignUp(username);
+        window.location.reload();
       } else {
         alert('Signup failed');
       }
@@ -46,7 +47,8 @@ export const SignUpView = () => {
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          requiredminLength="3"
+          required
+          minLength="3"
         />
       </label>
       <label>
