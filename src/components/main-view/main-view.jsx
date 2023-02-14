@@ -7,6 +7,7 @@ import { MovieView } from '../movie-view/movie-view';
 import { SignupView } from '../signup-view/signup-view';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import './main-view.scss';
 
 
 export const MainView = () => {
@@ -65,11 +66,9 @@ if (movies.length === 0) return <div className="main-view" />;
               <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }}/>
             ))
           }
+          <button onClick={() => { setUser(null); setToken(null); localStorage.clear(); }} className='back-button'>Logout</button>
         </div>
       );
-
-<button onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>Logout</button>
-
 }
 
 

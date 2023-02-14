@@ -10,7 +10,7 @@ export const SignupView = () => {
   const [birthday, setBirthday] = useState("");
 
   const handleSubmit = (event) => {
-    e.preventDefault();
+    event.preventDefault();
     console.log(username, password, email, birthday);
 
     const data = {
@@ -40,7 +40,7 @@ export const SignupView = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form>
       <label>
         Username:
         <input 
@@ -78,7 +78,7 @@ export const SignupView = () => {
           required
         />
       </label>
-      <button type="submit">Submit</button>
+      <button type="submit" onClick={handleSubmit}>Submit</button>
     </form>
   );
 }
