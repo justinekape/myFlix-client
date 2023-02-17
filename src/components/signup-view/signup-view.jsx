@@ -1,5 +1,4 @@
 import e from "cors";
-// import PropTypes from 'prop-types';
 import { useState } from "react";
 
 export const SignupView = () => {
@@ -83,6 +82,3 @@ export const SignupView = () => {
   );
 }
 
-// SignUpView.propTypes = {
-//   onSignUp: PropTypes.func.isRequired
-// };
