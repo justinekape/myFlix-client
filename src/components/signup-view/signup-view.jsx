@@ -1,4 +1,3 @@
-import e from "cors";
 import { useState } from "react";
 
 export const SignupView = () => {
@@ -28,8 +27,6 @@ export const SignupView = () => {
     }).then((response) => {
       if (response.ok) {
         alert('Signup successful');
-        //props.onSignUp(username);
-        // window.location.reload();
       } else {
         alert('Signup failed');
       }

@@ -1,32 +1,4 @@
-// import e from 'cors';
 import React, { useState } from 'react';
-
-// export function LoginView(props) {
-//   const [ username, setUsername ] = useState('');
-//   const [ password, setPassword ] = useState('');
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     console.log(username, password);
-//     /* send a request to the server for authentication */
-//     /* then call props.onLoggedIn(username) */
-//     props.onLoggedIn(username);
-//   };
-
-// return (
-//     <form>
-//       <label>
-//         Username:
-//         <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
-//       </label>
-//       <label>
-//         Password: 
-//         <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
-//       </label>
-//       <button type="submit" onClick={handleSubmit}>Submit</button>
-//     </form>
-//   );
-// }
 
 export const LoginView = ({ onLoggedIn }) => {
 
@@ -56,7 +28,7 @@ export const LoginView = ({ onLoggedIn }) => {
         if (data.user) {
           localStorage.setItem('user', JSON.stringify(data.user));
           localStorage.setItem('token', data.token);
-          props.onLoggedIn(data.user, data.token);
+          onLoggedIn(data.user, data.token);
       } else {
         alert("No such user");
       }
@@ -67,7 +39,7 @@ export const LoginView = ({ onLoggedIn }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form>
       <label>
         Username:
         <input 
@@ -86,7 +58,7 @@ export const LoginView = ({ onLoggedIn }) => {
         required
         />
       </label>
-      <button type='submit'>
+      <button onClick={handleSubmit}>
         Submit
       </button>
     </form>

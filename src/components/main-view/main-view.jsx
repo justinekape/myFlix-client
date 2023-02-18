@@ -5,8 +5,8 @@ import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { SignupView } from '../signup-view/signup-view';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+// import Row from 'react-bootstrap/Row';
+// import Col from 'react-bootstrap/Col';
 import './main-view.scss';
 
 
@@ -30,7 +30,7 @@ useEffect(() => {
   })
   .then((response) => response.json())
   .then((data) => {
-    console.log(data);
+    console.log (setMovies(data));
   });
 }, [token]);
 
@@ -58,12 +58,12 @@ if (movies.length === 0) return <div className="main-view" />;
             ? (
               <Row className="justify-content-md-center">
                 <Col md={8}>
-                <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+                <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { setSelectedMovie(newSelectedMovie); }}/>
                 </Col>
               </Row>
             )
             : movies.map(movie => (
-              <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }}/>
+              <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { setSelectedMovie(newSelectedMovie) }}/>
             ))
           }
           <button onClick={() => { setUser(null); setToken(null); localStorage.clear(); }} className='back-button'>Logout</button>
