@@ -28,8 +28,8 @@ export const SignupView = () => {
     }).then((response) => {
       if (response.ok) {
         alert('Signup successful');
-        // props.onSignUp(username);
-        window.location.reload();
+        //props.onSignUp(username);
+        // window.location.reload();
       } else {
         alert('Signup failed');
       }
@@ -81,4 +81,3 @@ export const SignupView = () => {
     </form>
   );
 }
-
