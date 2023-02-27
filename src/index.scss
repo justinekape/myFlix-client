@@ -1,7 +1,10 @@
-$color: steelblue;
+$primary: GoldenRod;
+$body-bg: MediumAquamarine;
+
+@import '~bootstrap/scss/bootstrap.scss';
 
 .my-flix {
-  color: $color;
+  color: $black;
 }
 
 .back-button {

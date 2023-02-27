@@ -2907,7 +2907,6 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 // import { MainView } from './components/main-view/main-view';
 var _client = require("react-dom/client");
 var _mainView = require("./components/main-view/main-view");
-var _bootstrapMinCss = require("bootstrap/dist/css/bootstrap.min.css");
 var _container = require("react-bootstrap/Container");
 var _containerDefault = parcelHelpers.interopDefault(_container);
 // import statement to indicate that you need to bundle './index.scss'
@@ -2917,12 +2916,12 @@ const App = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _containerDefault.default), {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mainView.MainView), {}, void 0, false, {
             fileName: "src/index.jsx",
-            lineNumber: 20,
+            lineNumber: 19,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/index.jsx",
-        lineNumber: 19,
+        lineNumber: 18,
         columnNumber: 5
     }, undefined);
 };
@@ -2933,7 +2932,7 @@ const root = (0, _client.createRoot)(container);
 // tells React to render your app in the root DOM element
 root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
     fileName: "src/index.jsx",
-    lineNumber: 30,
+    lineNumber: 29,
     columnNumber: 13
 }, undefined));
 var _c;
@@ -2944,7 +2943,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","./components/main-view/main-view":"4gflv","bootstrap/dist/css/bootstrap.min.css":"i5LP7","react-bootstrap/Container":"hEdsw","./index.scss":"lJZlQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","./components/main-view/main-view":"4gflv","react-bootstrap/Container":"hEdsw","./index.scss":"lJZlQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("./cjs/react-jsx-dev-runtime.development.js");
 
@@ -45454,7 +45453,7 @@ $RefreshReg$(_c, "MovieView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./movie-view.scss":"jnlR5"}],"jnlR5":[function() {},{}],"4OGiN":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./movie-view.scss":"jnlR5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"jnlR5":[function() {},{}],"4OGiN":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$73d1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -45672,6 +45671,6 @@ $RefreshReg$(_c, "SignupView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap/Button":"aPzUt","react-bootstrap/Form":"iBZ80","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"eBaMl":[function() {},{}],"i5LP7":[function() {},{}],"lJZlQ":[function() {},{}]},["1xC6H","jVvJi","d8Dch"], "d8Dch", "parcelRequireaec4")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap/Button":"aPzUt","react-bootstrap/Form":"iBZ80","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"eBaMl":[function() {},{}],"lJZlQ":[function() {},{}]},["1xC6H","jVvJi","d8Dch"], "d8Dch", "parcelRequireaec4")
 
 //# sourceMappingURL=index.b4b6dfad.js.map
