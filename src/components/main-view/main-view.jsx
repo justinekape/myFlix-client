@@ -68,6 +68,7 @@ return (
           ))}
         </>
       )}
+      <button className='logout-button' onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>Logout</button>
     </Row>
   );
 }
