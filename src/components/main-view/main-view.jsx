@@ -41,7 +41,7 @@ return (
           setUser(user);
           setToken(token);
         }} />
-        or
+       
         <SignupView />
       </Col>
       ) : selectedMovie ? (
