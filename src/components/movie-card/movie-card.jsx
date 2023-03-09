@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
@@ -33,23 +33,23 @@ export const MovieCard = ({ movie }) => {
 //   }
 // }
 
-MovieCard.propTypes = {
-  movie: PropTypes.shape({
-    image: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    genre: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired
-    }),
-    director: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      bio: PropTypes.string.isRequired,
-      birth: PropTypes.string.isRequired,
-      death: PropTypes.string.isRequired
-     }),
-  }).isRequired
-};
+// MovieCard.propTypes = {
+//    movie: PropTypes.shape({
+//     image: PropTypes.string.isRequired,
+//     title: PropTypes.string.isRequired,
+//     description: PropTypes.string.isRequired,
+//     genre: PropTypes.shape({
+//       name: PropTypes.string.isRequired,
+//       description: PropTypes.string.isRequired
+//     }),
+//     director: PropTypes.shape({
+//       name: PropTypes.string.isRequired,
+//       bio: PropTypes.string.isRequired,
+//       birth: PropTypes.string.isRequired,
+//       death: PropTypes.string.isRequired
+//      }),
+//    }).isRequired
+//  };
 
 
 
