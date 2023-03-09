@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Button, Form, Row, Col, Card } from 'react-bootstrap';
 
-export const UpdateUser = ({ user }) => {
+export const UpdateUser = ({ handleUpdate }) => {
 
   const storedUser = JSON.parse(localStorage.getItem('user'));
   const storedToken = localStorage.getItem('token');
@@ -30,7 +30,7 @@ export const UpdateUser = ({ user }) => {
         <Form.Control
           type='text'
           value={user.Username}
-          onChange={(e) => setUsername(e.target.value)}
+          onChange={(e) => handleUpdate(e.target.value)}
           required
           mingLength='3'
         />
@@ -41,7 +41,7 @@ export const UpdateUser = ({ user }) => {
         <Form.Control
           type='password'
           value={user.Password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => handleUpdate(e.target.value)}
           required
         />
       </Form.Group>
@@ -51,7 +51,7 @@ export const UpdateUser = ({ user }) => {
         <Form.Control
           type='email'
           value={user.Email}
-          onCHange={(e) => setEmail(e.target.value)}
+          onChange={(e) => handleUpdate(e.target.value)}
           required
         />
       </Form.Group>
@@ -61,7 +61,7 @@ export const UpdateUser = ({ user }) => {
         <Form.Control
           type='date'
           value={user.Birthday}
-          onChange={(e) => setBirthday(e.target.value)}
+          onChange={(e) => handleUpdate(e.target.value)}
           required
         />
       </Form.Group>

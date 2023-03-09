@@ -6,8 +6,9 @@ import './profile-view.scss';
 import axios from 'axios';
 import UserInfo from './user-info';
 import FaveMovies from './fave-movies';
+import UpdateUser from './update-user';
 
-export const ProfileView = ({ movies, })
+export const ProfileView = ({})
 
 
 
