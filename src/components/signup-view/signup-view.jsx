@@ -46,7 +46,7 @@ export const SignupView = () => {
             <Card>
               <Card.Body>
                 <Card.Title>Register Here!</Card.Title>
-                <Form onSubmit={handleSubmit}>
+                <Form>
                   <Form.Group controlId='formUsername'>
                     <Form.Label>Username:</Form.Label>
                     <Form.Control
@@ -88,7 +88,7 @@ export const SignupView = () => {
                     />
                   </Form.Group>
 
-                  <Button variant='primary' type='submit'>
+                  <Button onSubmit={handleSubmit} variant='primary' type='submit'>
                     Submit
                   </Button>
                 </Form>

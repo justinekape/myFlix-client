@@ -24,7 +24,7 @@ export const UpdateUser = ({ handleUpdate }) => {
   }
 
   return (
-    <Form onSubmit={(e) => handleSubmit(e)}>
+    <Form>
       <Form.Group>
         <Form.Label>Username:</Form.Label>
         <Form.Control
@@ -66,7 +66,7 @@ export const UpdateUser = ({ handleUpdate }) => {
         />
       </Form.Group>
 
-      <Button variant='primary' type='submit'>
+      <Button onSubmit={handleSubmit} variant='primary' type='submit'>
         Submit Changes
       </Button>
     </Form>
