@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+// import Button from 'react-bootstrap/Button';
+// import Form from 'react-bootstrap/Form';
 import { Form, Button, Card, CardGroup, Container, Col, Row } from 'react-bootstrap';
 
 export const LoginView = ({ onLoggedIn }) => {
@@ -47,7 +49,7 @@ export const LoginView = ({ onLoggedIn }) => {
           <Card>
             <Card.Body>
               <Card.Title>Login Here!</Card.Title>
-              <Form>
+              <Form onSubmit={handleSubmit}>
                 <Form.Group controlId='formUsername'>
                   <Form.Label>Username:</Form.Label>
                   <Form.Control
@@ -67,7 +69,7 @@ export const LoginView = ({ onLoggedIn }) => {
                     required
                   />
                 </Form.Group>
-                <Button onSubmit={handleSubmit} variant='primary' type='submit'>
+                <Button variant='primary' type='submit'>
                     Submit
                 </Button>
               </Form>

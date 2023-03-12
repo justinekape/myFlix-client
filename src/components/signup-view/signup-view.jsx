@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 // import Button from 'react-bootstrap/Button';
 // import Form from 'react-bootstrap/Form';
 import { Form, Button, Card, CardGroup, Container, Col, Row } from 'react-bootstrap';
@@ -46,7 +46,7 @@ export const SignupView = () => {
             <Card>
               <Card.Body>
                 <Card.Title>Register Here!</Card.Title>
-                <Form>
+                <Form onSubmit={handleSubmit}>
                   <Form.Group controlId='formUsername'>
                     <Form.Label>Username:</Form.Label>
                     <Form.Control
@@ -88,7 +88,7 @@ export const SignupView = () => {
                     />
                   </Form.Group>
 
-                  <Button onSubmit={handleSubmit} variant='primary' type='submit'>
+                  <Button variant='primary' type='submit'>
                     Submit
                   </Button>
                 </Form>

@@ -1,18 +1,17 @@
-import React from 'react';
-// import PropTypes from 'prop-types';
+// import React from 'react';
+import PropTypes from 'prop-types';
 import { Button, Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 
-export const MovieCard = ({ movie }) => {
+export const MovieCard = ({ movie, onMovieClick }) => {
   return (
     <Card>
       <Card.Img variant='top' src={movie.image} />
       <Card.Body>
         <Card.Title>{movie.title}</Card.Title>
         <Card.Text>{movie.description}</Card.Text>
-        <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
-          <Button variant='link'>Open</Button>
-        </Link>
+        <Button onClick={() => onMovieClick(movie)} variant='link'>
+          Open
+        </Button>
       </Card.Body>
     </Card>
   );
@@ -34,22 +33,21 @@ export const MovieCard = ({ movie }) => {
 // }
 
 // MovieCard.propTypes = {
-//    movie: PropTypes.shape({
-//     image: PropTypes.string.isRequired,
-//     title: PropTypes.string.isRequired,
-//     description: PropTypes.string.isRequired,
-//     genre: PropTypes.shape({
-//       name: PropTypes.string.isRequired,
-//       description: PropTypes.string.isRequired
+//   movie: PropTypes.shape({
+//     Title: PropTypes.string.isRequired,
+//     Description: PropTypes.string.isRequired,
+//     Genre: PropTypes.shape({
+//       Name: PropTypes.string.isRequired,
+//       Description: PropTypes.string.isRequired
 //     }),
-//     director: PropTypes.shape({
-//       name: PropTypes.string.isRequired,
-//       bio: PropTypes.string.isRequired,
-//       birth: PropTypes.string.isRequired,
-//       death: PropTypes.string.isRequired
-//      }),
-//    }).isRequired
-//  };
-
-
+//     Director: PropTypes.shape({
+//       Name: PropTypes.string.isRequired,
+//       Bio: PropTypes.string.isRequired,
+//       Birth: PropTypes.string.isRequired,
+//       Death: PropTypes.string.isRequired
+//     }),
+//     ImagePath: PropTypes.string.isRequired
+//   }).isRequired,
+//   onMovieClick: PropTypes.func.isRequired
+// };
 
